@@ -157,6 +157,20 @@ class testEditData(unittest.TestCase):
         response_edit = driver.find_element(By.XPATH, "//*/tbody/tr[2]/td[6]").text
         self.assertEqual(response_edit, "derandals@gmail.com")
 
+    def test_edit_data_cancel_update(self):
+        driver = self.driver
+        TestLoginRegister.test_Login(self)
+        time.sleep(3)
+        searching = driver.find_element(By.XPATH, "//*/tbody/tr[2]/td[1]").text
+        driver.find_element(By.NAME, "searching").send_keys(searching)
+        time.sleep(1)
+        driver.find_element(By.XPATH, "//*/form/input[2]").click()
+        time.sleep(1)
+        driver.find_element(By.XPATH, "//*/tr[2]/td[7]/a[1]").click()
+        time.sleep(1)
+        driver.find_element(By.XPATH,"//*/div/a").click()
+
+
 
 
 unittest.main()
